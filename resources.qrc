@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sprites/goku_frente.png</file>
+        <file>sprites/fondo.jpg</file>
+    </qresource>
+</RCC>
