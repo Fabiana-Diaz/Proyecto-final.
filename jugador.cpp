@@ -96,5 +96,21 @@ void jugador::keyPressEvent(QKeyEvent* event) {
         return;
     }
 }
+void jugador::keyReleaseEvent(QKeyEvent* event) {
+    if (estaMuerto || victoriaMostrada) return;
+
+    if (event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) {
+        setPixmap(spritePreparacion.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        cambioSpriteTimer->stop();
+        teclaPresionada = false;
+        animacionEnProgreso = false;
+    }
+    if (event->key() == Qt::Key_Space) {
+        saltoPermitido = true;
+    }
+    if (event->key() == Qt::Key_Z) {
+        zPresionada = false;
+    }
+}
 
 
