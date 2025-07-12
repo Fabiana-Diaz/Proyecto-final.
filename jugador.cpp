@@ -192,3 +192,10 @@ void jugador::resolverColision(QGraphicsItem* plataforma) {
     }
 }
 
+void jugador::activarCaidaLibre() {
+    if (!enElAire && !enPlataforma) {
+        enElAire = true;
+    }
+}
+
+
