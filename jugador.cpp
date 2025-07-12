@@ -28,3 +28,22 @@ jugador::jugador(float x, float y)
         qDebug() << "✅ spriteVictoria cargado correctamente";
     }
 
+    // Sprites de ataque
+    spritePuno1    = QPixmap(":/sprites/goku_puno1.png");           // Brazo listo para golpear
+    spritePuno2    = QPixmap(":/sprites/goku_puno2.png");           // Puño extendido
+    spriteEspecial = QPixmap(":/sprites/goku_ataque.png");          // Ataque especial
+
+    setPixmap(spriteQuieto.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    setPos(x, y);
+    setFlag(QGraphicsItem::ItemIsFocusable);
+    setFocus();
+
+    cambioSpriteTimer = new QTimer(this);
+    cambioSpriteTimer->setSingleShot(true);
+    connect(cambioSpriteTimer, &QTimer::timeout, this, [=]() {
+        if (!estaMuerto && !victoriaMostrada && spriteCaminando.cacheKey() != pixmap().cacheKey()) {
+            setPixmap(spriteCaminando.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        }
+        animacionEnProgreso = false;
+    });
+}
