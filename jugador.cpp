@@ -165,3 +165,30 @@ void jugador::verificarColisionInicial(const QList<Plataforma*>& plataformas) {
     enPlataforma = false;
     qDebug() << "⚠ Goku inicia en el aire.";
 }
+void jugador::resolverColision(QGraphicsItem* plataforma) {
+    if (victoriaMostrada) return;
+
+    QRectF pies = mapToScene(shape()).boundingRect();
+    QRectF plat = plataforma->sceneBoundingRect();
+
+    bool estaSobre =
+        velocidadY > 0 &&
+        pies.bottom() >= plat.top() &&
+        pies.bottom() <= plat.top() + 15 &&
+        pies.right() > plat.left() &&
+        pies.left() < plat.right();
+
+    if (estaSobre) {
+        setY(plat.top() - boundingRect().height());
+        velocidadY = 0;
+        enElAire = false;
+        saltoPermitido = true;
+
+        if (pixmap().cacheKey() != spritePreparacion.cacheKey()) {
+            setPixmap(spritePreparacion.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        }
+
+        qDebug() << "✅ Goku aterrizó correctamente sobre la plataforma.";
+    }
+}
+
