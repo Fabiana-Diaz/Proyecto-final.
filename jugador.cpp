@@ -199,3 +199,8 @@ void jugador::activarCaidaLibre() {
 }
 
 
+QPainterPath jugador::shape() const {
+    QPainterPath path;
+    path.addRect(25, 80, 50, 15);  // Área de colisión (pies)
+    return path;
+}
