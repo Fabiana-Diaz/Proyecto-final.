@@ -140,3 +140,28 @@ void jugador::aplicarFisica() {
         QMessageBox::information(nullptr, "Game Over", "💀 Goku cayó fuera de la plataforma.");
     }
 }
+void jugador::verificarColisionInicial(const QList<Plataforma*>& plataformas) {
+    for (Plataforma* plat : plataformas) {
+        QRectF pies = mapToScene(shape()).boundingRect();
+        QRectF platRect = plat->sceneBoundingRect();
+
+        bool encima =
+            pies.bottom() >= platRect.top() &&
+            pies.bottom() <= platRect.top() + 15 &&
+            pies.right() > platRect.left() &&
+            pies.left() < platRect.right();
+
+        if (encima) {
+            setY(platRect.top() - boundingRect().height());
+            enElAire = false;
+            velocidadY = 0;
+            enPlataforma = true;
+            qDebug() << "✅ Goku inicia correctamente sobre la plataforma.";
+            return;
+        }
+    }
+
+    enElAire = true;
+    enPlataforma = false;
+    qDebug() << "⚠ Goku inicia en el aire.";
+}
