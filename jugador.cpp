@@ -204,3 +204,14 @@ QPainterPath jugador::shape() const {
     path.addRect(25, 80, 50, 15);  // Área de colisión (pies)
     return path;
 }
+void jugador::saltar() {
+    if (!enElAire) {
+        velocidadY = -12;
+        if (ultimaDireccion == "derecha") {
+            // movimiento horizontal positivo
+        } else if (ultimaDireccion == "izquierda") {
+            // movimiento horizontal negativo
+        }
+        enElAire = true;
+    }
+}
