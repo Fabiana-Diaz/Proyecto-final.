@@ -1,3 +1,4 @@
+//la clase goku se decidio eliminar solo se trabajara con clase personaje que hereda a clase jugador
 #include "goku.h"
 #include <QKeyEvent>
 #include <QPixmap>
