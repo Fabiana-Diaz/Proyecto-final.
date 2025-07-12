@@ -219,3 +219,7 @@ void jugador::moverIzquierda() {
     setX(x() - velocidadMovimiento);
     ultimaDireccion = "izquierda";
 }
+void jugador::moverDerecha() {
+    setX(x() + velocidadMovimiento);
+    ultimaDireccion = "derecha";
+}
