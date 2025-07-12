@@ -1,19 +1,16 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 
-#include <QGraphicsPixmapItem>
-
-class personaje : public QGraphicsPixmapItem {
+class personaje {
 public:
-    personaje(float x, float y);              // Constructor por defecto (usa masa 1.0)
-    personaje(float x, float y, float masa);  // Constructor con masa específica
+    personaje(float x, float y, float masa);   // Constructor principal
+    personaje(float x, float y);               // Constructor alternativo sin masa
 
-    virtual void aplicarFisica() = 0; // Método abstracto
+    float getX() const;                        // Getter de X
+    float getY() const;                        // Getter de Y
 
-    float getX() const;
-    float getY() const;
-
-    virtual void recibirDanio(int cantidad, float fuerza);
+    virtual void aplicarFisica() = 0;          // Método puro para física
+    virtual void recibirDanio(int cantidad, float fuerza);  // Recibir daño
 
 protected:
     float posX, posY;
@@ -23,3 +20,4 @@ protected:
 };
 
 #endif // PERSONAJE_H
+
