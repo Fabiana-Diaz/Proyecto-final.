@@ -55,3 +55,32 @@ private:
     bool enPlataforma;
     int vida;
     float velocidadMovimiento = 4.0f;
+  // Sprites y animaciones
+    QTimer* cambioSpriteTimer;
+
+    QPixmap spriteQuieto;
+    QPixmap spritePuno1;
+    QPixmap spritePuno2;
+    QPixmap spriteEspecial;
+    QPixmap spriteCaminando;
+    QPixmap spriteSalto;
+    QPixmap spriteMuerto;
+    QString ultimaDireccion = "quieto";
+    QPixmap spritePreparacion;
+
+    QPixmap spriteVictoria;
+
+    // Lógica de ataque
+    bool enAtaque;
+    bool ataqueEspecialActivo;
+    bool zPresionada = false;
+
+    // UI
+    QGraphicsTextItem* textoVida;
+    QGraphicsRectItem* barraVida;
+
+    // --- NUEVO: bandera de victoria
+    bool victoriaMostrada = false;
+};
+
+#endif // JUGADOR_H
