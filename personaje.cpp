@@ -3,7 +3,7 @@
 personaje::personaje(float x, float y, float masa)
     : posX(x), posY(y), velX(0), velY(0), masa(masa), vida(100)
 {
-    setPos(x, y);
+    // ❌ setPos(x, y); ← esto debe ir en una clase gráfica, no aquí
 }
 
 personaje::personaje(float x, float y)
