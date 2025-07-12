@@ -215,3 +215,7 @@ void jugador::saltar() {
         enElAire = true;
     }
 }
+void jugador::moverIzquierda() {
+    setX(x() - velocidadMovimiento);
+    ultimaDireccion = "izquierda";
+}
