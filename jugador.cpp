@@ -72,4 +72,29 @@ void jugador::keyPressEvent(QKeyEvent* event) {
         });
         return;
     }
+// MOVIMIENTO IZQUIERDA/DERECHA
+    if ((event->key() == Qt::Key_Left || event->key() == Qt::Key_Right) && !teclaPresionada) {
+        setPixmap(spritePreparacion.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        animacionEnProgreso = true;
+        cambioSpriteTimer->start(150);
+        teclaPresionada = true;
+
+        if (event->key() == Qt::Key_Left) {
+            moverIzquierda();
+        } else {
+            moverDerecha();
+        }
+        return;
+    }
+
+    // SALTO
+    if (event->key() == Qt::Key_Space && !enElAire && saltoPermitido) {
+        saltar();
+        saltoPermitido = false;
+        setPixmap(spriteSalto.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        qDebug() << "⬆ Goku saltó con dirección:" << ultimaDireccion;
+        return;
+    }
+}
+
 
