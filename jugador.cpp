@@ -47,3 +47,29 @@ jugador::jugador(float x, float y)
         animacionEnProgreso = false;
     });
 }
+
+void jugador::keyPressEvent(QKeyEvent* event) {
+    if (estaMuerto || victoriaMostrada) return;
+
+    // ATAQUE NORMAL: Z (solo una vez por pulsación)
+    if (event->key() == Qt::Key_Z && !enAtaque && !zPresionada) {
+        zPresionada = true;
+        enAtaque = true;
+        setPixmap(spritePuno1.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+        QTimer::singleShot(80, this, [this]() {
+            setPixmap(spritePuno2.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            for (QGraphicsItem *item : collidingItems()) {
+                Banglades* enemigo = dynamic_cast<Banglades*>(item);
+                if (enemigo) {
+                    enemigo->recibirGolpe(10);
+                }
+            }
+            QTimer::singleShot(100, this, [this]() {
+                setPixmap(spriteQuieto.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+                enAtaque = false;
+            });
+        });
+        return;
+    }
+
