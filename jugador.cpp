@@ -239,3 +239,8 @@ void jugador::recibirDanio(int cantidad) {
         QMessageBox::information(nullptr, "Game Over", "💀 Goku fue derrotado por las vendas.");
     }
 }
+void jugador::mostrarVictoria() {
+    qDebug() << "¡¡¡Goku celebra la victoria!!!";
+    setPixmap(spriteVictoria.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    victoriaMostrada = true;
+}
