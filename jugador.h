@@ -41,3 +41,17 @@ public:
     void setBarraVida(QGraphicsRectItem* barra) { barraVida = barra; }
 
      void mostrarVictoria();
+signals:
+    void jugadorMuerto();
+
+private:
+    // Físicas y estado
+    float velocidadY;
+    bool enElAire;
+    bool teclaPresionada;
+    bool estaMuerto;
+    bool saltoPermitido;
+    bool animacionEnProgreso;
+    bool enPlataforma;
+    int vida;
+    float velocidadMovimiento = 4.0f;
