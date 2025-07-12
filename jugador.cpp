@@ -223,3 +223,19 @@ void jugador::moverDerecha() {
     setX(x() + velocidadMovimiento);
     ultimaDireccion = "derecha";
 }
+
+void jugador::recibirDanio(int cantidad) {
+    vida -= cantidad;
+    if (vida < 0) vida = 0;
+
+    if (textoVida) textoVida->setPlainText(QString("Goku: %1").arg(vida));
+    if (barraVida) barraVida->setRect(0, 0, vida, 10);
+
+    if (vida == 0 && !estaMuerto) {
+        estaMuerto = true;
+        setPixmap(spriteMuerto.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        update();
+        emit jugadorMuerto();
+        QMessageBox::information(nullptr, "Game Over", "💀 Goku fue derrotado por las vendas.");
+    }
+}
