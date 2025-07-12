@@ -114,3 +114,29 @@ void jugador::keyReleaseEvent(QKeyEvent* event) {
 }
 
 
+void jugador::aplicarFisica() {
+    if (estaMuerto || victoriaMostrada) return;
+
+    if (enElAire) {
+        velocidadY += 0.7;
+        setY(y() + velocidadY);
+
+        // Movimiento horizontal durante salto
+        if (ultimaDireccion == "derecha") {
+            setX(x() + velocidadMovimiento);
+        } else if (ultimaDireccion == "izquierda") {
+            setX(x() - velocidadMovimiento);
+        }
+
+        qDebug() << "⬇ Goku cayendo: Y =" << y() << ", VelY =" << velocidadY << ", Dirección:" << ultimaDireccion;
+    } else {
+        velocidadY = 0;
+    }
+
+    if (y() >= 580 && !estaMuerto) {
+        estaMuerto = true;
+        setPixmap(spriteMuerto.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        update();
+        QMessageBox::information(nullptr, "Game Over", "💀 Goku cayó fuera de la plataforma.");
+    }
+}
