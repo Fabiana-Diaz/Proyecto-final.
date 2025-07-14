@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sprites/goku_frente.png</file>
+        <file>sprites/fondo.jpg</file>
+        <file>sprites/goku_izquierda.png</file>
+        <file>sprites/goku_izq2.png</file>
+        <file>sprites/goku_salto.png</file>
+        <file>sprites/goku_muerto.png</file>
+        <file>sprites/banglades.png</file>
+        <file>sprites/vendas.png</file>
+        <file>sprites/Plataforma2.png</file>
+        <file>sprites/corazon.png</file>
+        <file>sprites/goku_puno1.png</file>
+        <file>sprites/goku_puno2.png</file>
+        <file>sprites/banglades_muerto.png</file>
+        <file>sprites/goku_victoria.png</file>
+        <file>sprites/you_win.png</file>
+        <file>sprites/titulo.png</file>
+        <file>sprites/fondo_pixel_art_800x600.png</file>
+        <file>sprites/nivel1_pixelart_sin_fondo.png</file>
+        <file>sprites/nivel22-removebg-preview.png</file>
+        <file>sprites/fondo2.jpg</file>
+        <file>sprites/akkumam.png</file>
+        <file>sprites/resplandor.png</file>
+        <file>sprites/estrella.png</file>
+        <file>sprites/super_ataque.png</file>
+    </qresource>
+</RCC>
