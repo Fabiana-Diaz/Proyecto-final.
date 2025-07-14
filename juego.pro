@@ -9,19 +9,31 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Banglades.cpp \
+    Estrella.cpp \
     GameScene.cpp \
-    gamewindow.cpp \
+    GameScene2.cpp \
+    Plataforma.cpp \
+    Resplandor.cpp \
+    akkuman.cpp \
     jugador.cpp \
     main.cpp \
     mainwindow.cpp \
-    personaje.cpp
+    personaje.cpp \
+    venda.cpp
 
 HEADERS += \
+    Banglades.h \
+    Estrella.h \
     GameScene.h \
-    gamewindow.h \
+    GameScene2.h \
+    Plataforma.h \
+    Resplandor.h \
+    akkuman.h \
     jugador.h \
     mainwindow.h \
-    personaje.h
+    personaje.h \
+    venda.h
 
 FORMS += \
     mainwindow.ui
@@ -33,3 +45,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    sprites/momia_izquierda.png

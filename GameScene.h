@@ -6,6 +6,10 @@
 #include <QTimer>
 #include "jugador.h"
 #include "Plataforma.h"
+//#include <QMediaPlayer>
+//#include <QMediaPlaylist>
+
+
 
 // 👇 Declaración adelantada para evitar error de tipo
 class Banglades;
@@ -17,8 +21,6 @@ class GameScene : public QGraphicsScene
 public:
     explicit GameScene(QObject *parent = nullptr);
     jugador* getJugadorGoku() const { return jugadorGoku; }
-
-
 
 
 public slots:
@@ -38,6 +40,8 @@ private:
 
     QGraphicsRectItem* barraVidaGoku;
     QGraphicsRectItem* barraVidaBanglades;
+
+
 
 
 private slots:

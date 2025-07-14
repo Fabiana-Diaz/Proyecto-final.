@@ -7,6 +7,10 @@
 #include "banglades.h"
 #include "Venda.h"
 
+
+
+
+
 // NUEVO: Para el cartel de victoria
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
@@ -45,6 +49,9 @@ GameScene::GameScene(QObject *parent)
     jugadorGoku = new jugador(175, 225);
     jugadorGoku->setZValue(4);
     addItem(jugadorGoku);
+    // Aquí agregas la línea:
+    qDebug() << "Tamaño real de Goku (Nivel 1):" << jugadorGoku->boundingRect() << "escala:" << jugadorGoku->scale();
+
     // --- IMPORTANTE ---
     jugadorGoku->setFlag(QGraphicsItem::ItemIsFocusable);
     jugadorGoku->setFocus();
@@ -171,4 +178,5 @@ void GameScene::keyReleaseEvent(QKeyEvent* event) {
     if (jugadorGoku)
         jugadorGoku->keyReleaseEvent(event);
 }
+
 

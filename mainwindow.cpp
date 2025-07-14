@@ -3,6 +3,8 @@
 #include "GameScene.h"
 #include <QGraphicsView>
 #include <QTimer>
+#include "GameScene2.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,7 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 // Botón para iniciar el juego (Nivel 1)
-void MainWindow::on_pushButton_clicked()
+
+    void MainWindow::on_pushButton_clicked()
 {
     // OCULTA el menú (título, imagen, botones)
     ui->label->setVisible(false);        // Fondo/título
@@ -40,7 +43,6 @@ void MainWindow::on_pushButton_clicked()
     });
 }
 
-// Si tienes botón para Nivel 2 puedes repetir la lógica
 void MainWindow::on_pushButton_2_clicked()
 {
     // OCULTA el menú y muestra el juego
@@ -50,10 +52,16 @@ void MainWindow::on_pushButton_2_clicked()
     ui->pushButton_2->setVisible(false);
     ui->graphicsView->setVisible(true);
 
-    // Aquí iría la escena del segundo nivel
-    // GameScene2* nivel2 = new GameScene2(this);
-    // ui->graphicsView->setScene(nivel2);
+    GameScene2* nivel2 = new GameScene2(this);
+    ui->graphicsView->setScene(nivel2);
+
+    // MUY IMPORTANTE: fitInView debe ser después de mostrar el widget
+    ui->graphicsView->fitInView(nivel2->sceneRect(), Qt::KeepAspectRatio);
+
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
+
 
 MainWindow::~MainWindow()
 {

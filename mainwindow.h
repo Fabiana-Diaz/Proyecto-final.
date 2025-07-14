@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QGraphicsView>
 #include "GameScene.h"
+#include "GameScene2.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
